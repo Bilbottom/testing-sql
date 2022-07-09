@@ -25,14 +25,16 @@ CREATE TRIGGER append_to_hist
     BEFORE UPDATE ON my_table
     WHEN OLD.id = NEW.id
 BEGIN
-    INSERT INTO my_table_history VALUES
+    INSERT INTO my_table_history
+    VALUES
         (OLD.id, OLD.forename, OLD.surname, DATETIME())
     ;
 END
 ;
 
 
-INSERT INTO my_table(forename, surname)VALUES
+INSERT INTO my_table(forename, surname)
+VALUES
     ('Joseph', 'Bloggs'),
     ('John', 'Smith')
 ;
