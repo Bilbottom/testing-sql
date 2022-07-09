@@ -1,0 +1,20 @@
+{
+    "soccer_country": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/soccer_country_view_data.php",
+    "soccer_city": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/soccer_city_view_data.php",
+    "soccer_venue": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/soccer_venue_view_data.php",
+    "soccer_team": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/soccer_team_view_data.php",
+    "playing_position": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/playing_position_view_data.php",
+    "player_mast": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/player_mast_view_data.php",
+    "referee_mast": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/referee_mast_view_data.php",
+    "match_mast": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/match_mast_view_data.php",
+    "coach_mast": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/coach_mast_view_data.php",
+    "asst_referee_mast": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/asst_referee_mast_view_data.php",
+    "match_details": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/match_details_view_data.php",
+    "goal_details": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/goal_details_view_data.php",
+    "penalty_shootout": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/penalty_shootout_view_data.php",
+    "player_booked": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/player_booked_view_data.php",
+    "player_in_out": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/player_in_out_view_data.php",
+    "match_captain": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/match_captain_view_data.php",
+    "team_coaches": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/team_coaches_view_data.php",
+    "penalty_gk": "https://www.w3resource.com/sql-exercises/soccer-database-exercise/penalty_gk_view_data.php"
+}

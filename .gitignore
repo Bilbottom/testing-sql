@@ -1,0 +1,4 @@
+# Data files
+*.db
+*.xls?
+*.csv
