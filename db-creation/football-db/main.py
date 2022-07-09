@@ -57,8 +57,8 @@ if __name__ == '__main__':
     with open('data/links.json', 'r') as f:
         links = json.loads(f.read())
 
-    con.execute('PRAGMA FOREIGN_KEYS = ON')
+    # con.execute('PRAGMA FOREIGN_KEYS = ON')
     for key in links:
         # download_page_data(table_name=key, webpage_url=links[key])
-        generate_ddl_naive(table_name=key)
-        # push_to_db(table_name=key, conn=con)
+        # generate_ddl_naive(table_name=key)
+        push_to_db(table_name=key, conn=con)

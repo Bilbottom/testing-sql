@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="customer.db" uuid="e1c0884b-ad90-418e-8f6a-20f9c421a435">
+    <data-source source="LOCAL" name="customer.db" uuid="e5be2c7e-5224-40d4-95e6-d6dd7ce4b027">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\customer.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\db-creation\customer-db\customer.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
@@ -13,11 +13,11 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="employee.db" uuid="c370ef85-9756-4aff-b2ba-49679cefb364">
+    <data-source source="LOCAL" name="employee.db" uuid="f5634883-83d9-43b3-b7c9-a70e7c33f383">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\employee.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\db-creation\employee-db\employee.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
@@ -25,11 +25,11 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="football.db" uuid="108bd9eb-59a5-4e5d-87a1-3982770f99ba">
+    <data-source source="LOCAL" name="football.db" uuid="78eabcdc-24df-44e5-aa71-d666ef1ebc72">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\football.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\db-creation\football-db\football.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
@@ -37,11 +37,11 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="student.db" uuid="da8de759-ddf7-40cf-bc06-fa70435b3a15">
+    <data-source source="LOCAL" name="student.db" uuid="2479df35-e16c-4dc8-b9f4-f09bd0ca7a3a">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\student.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\db-creation\student-db\student.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
@@ -49,7 +49,7 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="testing.db" uuid="3ff38f8e-a0b0-4e2d-9dcd-947bc7082bc2">
+    <data-source source="LOCAL" name="testing.db" uuid="c8682f8c-b2cb-4633-a13e-c4d76dc2fa90">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
