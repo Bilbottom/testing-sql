@@ -1,6 +1,5 @@
 Football Database SQL Learning
 ---
----
 > The resources here have all been taken from the following w3resources webpages:
 > * https://www.w3resource.com/sql–exercises/soccer–database–exercise/index.php
 

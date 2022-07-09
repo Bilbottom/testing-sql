@@ -53,7 +53,7 @@ def push_to_db(table_name: str, conn: sqlite3.Connection):
 
 
 if __name__ == '__main__':
-    con = sqlite3.connect('../../football.db')
+    con = sqlite3.connect('football.db')
     with open('data/links.json', 'r') as f:
         links = json.loads(f.read())
 
