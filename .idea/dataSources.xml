@@ -49,17 +49,5 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="testing.db" uuid="c8682f8c-b2cb-4633-a13e-c4d76dc2fa90">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\Repository\Projects\Coding\SQL\SQL-Testing\testing.db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.38.0/sqlite-jdbc-3.38.0.jar</url>
-        </library>
-      </libraries>
-    </data-source>
   </component>
 </project>
