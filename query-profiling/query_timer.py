@@ -1,43 +1,38 @@
+import sqlite3
 from timeit import timeit
 from functools import partial
 
-from utils import database_connector as dc
+
+class DbConnection:
+    """Implements the `execute_file` method on a SQLite3 connection."""
+    def __init__(self, database: str):
+        self.connection = sqlite3.connect(database)
+
+    def execute_file(self, filepath: str) -> sqlite3.Cursor:
+        """Open a file and execute the query inside it."""
+        with open(filepath, 'r') as f:
+            return self.connection.execute(f.read())
 
 
-def run_original(conn: dc.DatabaseConnector):
-    conn.run_query_from_file('queries/Original.sql')
+def run_query_1(conn: DbConnection):
+    conn.execute_file('queries/query-1.sql')
 
 
-def run_refactor(conn: dc.DatabaseConnector):
-    conn.run_query_from_file('queries/Refactor.sql')
+def run_query_2(conn: DbConnection):
+    conn.execute_file('queries/query-2.sql')
 
 
-def time_refactor_queries(repeat: int):
-    """How do we get around SQL storing temp tables?"""
-    db_conn = dc.DatabaseConnector(config_filepath='config-prod.yaml')
+def time_queries(repeat: int):
+    db_conn = DbConnection('../db-creation/customer-db/customer.db')
 
-    """Set the 'temp' tables"""
-    run_original(db_conn)
-    run_refactor(db_conn)
+    # Set the 'temp' tables
+    run_query_1(conn=db_conn)
+    run_query_2(conn=db_conn)
 
-    print('Original:', timeit(partial(run_original, db_conn), number=repeat))
-    print('Refactor:', timeit(partial(run_refactor, db_conn), number=repeat))
+    # Query stats
+    query_1_avg_time = timeit(partial(run_query_1, db_conn), number=repeat) / repeat
+    query_2_avg_time = timeit(partial(run_query_2, db_conn), number=repeat) / repeat
+    total_avg_time = query_1_avg_time + query_2_avg_time
 
-
-def run_normal(conn: dc.DatabaseConnector):
-    conn.run_query_from_file('indexes/Normal Tables/CM - Repayment Schedule - Live Loans.sql')
-
-
-def run_indexed(conn: dc.DatabaseConnector):
-    conn.run_query_from_file('indexes/Indexed Tables/CM - Repayment Schedule - Live Loans.sql')
-
-
-def time_reindex_queries(repeat: int):
-    db_conn = dc.DatabaseConnector(config_filepath='config-nonprod.yaml')
-
-    """Set the 'temp' tables"""
-    run_normal(db_conn)
-    run_indexed(db_conn)
-
-    print('Normal:', timeit(partial(run_normal, db_conn), number=repeat))
-    print('Indexed:', timeit(partial(run_indexed, db_conn), number=repeat))
+    print(f'Query 1: {query_1_avg_time:.8f} ({query_1_avg_time/total_avg_time:.1%})', )
+    print(f'Query 2: {query_2_avg_time:.8f} ({query_2_avg_time/total_avg_time:.1%})', )
