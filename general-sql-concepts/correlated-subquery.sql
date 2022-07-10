@@ -24,7 +24,7 @@ SELECT
     bh.balance_date,
     bh.balance
 FROM balance_history AS bh
-WHERE balance_date = (
+WHERE bh.balance_date = (
     SELECT MAX(bhi.balance_date)
     FROM balance_history AS bhi
     WHERE bhi.balance_date < '2022-06-01'
