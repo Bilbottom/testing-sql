@@ -17,20 +17,20 @@ FROM dates
 WITH fib AS (
         SELECT
             1 AS n,
-            0 AS f_1,
-            1 AS f_2
+            0 AS f_m,
+            1 AS f_n
     UNION ALL
         SELECT
             n + 1 AS n,
-            f_2 AS f_1,
-            f_1 + f_2 AS f_2
+            f_n AS f_m,
+            f_m + f_n AS f_n
         FROM fib
         WHERE n < 20
 )
 
 SELECT
     n,
-    f_2 AS f_n
+    f_n
 FROM fib
 ;
 
