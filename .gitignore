@@ -2,3 +2,6 @@
 *.db
 *.xls?
 *.csv
+
+# config screenshots
+*/config.png
