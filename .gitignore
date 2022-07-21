@@ -2,6 +2,7 @@
 *.db
 *.xls?
 *.csv
+*.tsv
 
 # config screenshots
 */config.png
