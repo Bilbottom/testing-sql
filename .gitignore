@@ -4,5 +4,6 @@
 *.csv
 *.tsv
 
-# config screenshots
+# config files
+*.env
 **/config.png
