@@ -1,4 +1,8 @@
 
+/* Turn off foreign key constraints -- the samples are just a subset so misaligned */
+SET session_replication_role = 'replica';
+
+
 /* `public.raw_name_basics`  ->  `imdb.name_basics`  (3 mins) */
 INSERT INTO imdb.name_basics
     SELECT
@@ -15,7 +19,7 @@ INSERT INTO imdb.name_basics
 /* `public.raw_title_akas`  ->  `imdb.title_akas`  (6 mins) */
 INSERT INTO imdb.title_akas
     SELECT
-        title_id::VARCHAR(10) AS title_id,
+        title_id::VARCHAR(10) AS tconst,
         ordering::SMALLINT AS ordering,
         title::VARCHAR(1024) AS title,
         region::VARCHAR(4) AS region,
@@ -85,3 +89,7 @@ INSERT INTO imdb.title_ratings
         num_votes::INTEGER AS num_votes
     FROM public.raw_title_ratings
 ;
+
+
+/* Turn foreign keys back on */
+SET session_replication_role = 'origin';
