@@ -18,3 +18,6 @@ The football data `db-creation\football-db` has come from:
 
 The student data `db-creation\student-db` has come from:
  * https://docs.microsoft.com/en-us/ef/ef6/resources/school-database
+
+The IMDb data `db-creation\postgres-db` has come from:
+ * https://datasets.imdbws.com/
