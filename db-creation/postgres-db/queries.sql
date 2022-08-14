@@ -13,18 +13,18 @@ FROM dates
 
 
 -- DROP TABLE IF EXISTS title_ratings;
-CREATE TEMPORARY TABLE title_ratings AS
+CREATE TEMPORARY TABLE temp_title_ratings AS
     SELECT
         tconst,
         CAST(average_rating AS NUMERIC(4, 2)) AS average_rating,
         CAST(num_votes AS INTEGER) AS num_votes
-    FROM raw_title_ratings
+    FROM imdb.title_ratings
     LIMIT 1000
 ;
 -- CREATE INDEX title_ratings_pk ON title_ratings(tconst);
-ALTER TABLE title_ratings ADD PRIMARY KEY (tconst);
+ALTER TABLE temp_title_ratings ADD PRIMARY KEY (tconst);
 
-SELECT * FROM title_ratings;
+SELECT * FROM temp_title_ratings;
 
 
 /* Confidence ratings */
@@ -33,7 +33,7 @@ SELECT
     average_rating,
     num_votes,
     CAST(1.0 * num_votes / MAX(num_votes) OVER() AS NUMERIC(5, 4)) AS confidence_rating
-FROM title_ratings
+FROM temp_title_ratings
 ;
 
 
@@ -43,7 +43,7 @@ SELECT
     average_rating,
     num_votes,
     SUM(num_votes) OVER(ORDER BY tconst) AS num_votes_running_total
-FROM title_ratings
+FROM temp_title_ratings
 ORDER BY tconst
 ;
 
@@ -54,33 +54,15 @@ SELECT
     average_rating,
     num_votes,
     CAST(
-        (1.0
-            * SUM(num_votes) OVER(ORDER BY tconst ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
-            / COUNT(num_votes) OVER(ORDER BY tconst ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
-        ) AS DECIMAL(15, 4)
-    ) AS num_votes_3_month_moving_average
-FROM title_ratings
+        AVG(num_votes) OVER(ORDER BY tconst ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
+            AS DECIMAL(15, 4)
+    ) AS num_votes_3_row_moving_average
+FROM temp_title_ratings
 ORDER BY tconst
 ;
 
 
-/* Running averages */
-SELECT
-    tconst,
-    average_rating,
-    num_votes,
-    CAST(
-        (1.0
-            * SUM(num_votes) OVER(ORDER BY tconst ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
-            / COUNT(num_votes) OVER(ORDER BY tconst ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
-        ) AS DECIMAL(15, 4)
-    ) AS num_votes_3_month_moving_average
-FROM title_ratings
-ORDER BY tconst
-;
-
-
-/* Running averages */
+/* Sliding Windows */
 WITH cte_agg AS (
     SELECT
         tconst,
@@ -88,7 +70,7 @@ WITH cte_agg AS (
         num_votes,
         MIN(num_votes) OVER (ORDER BY tconst ROWS BETWEEN 2 PRECEDING AND 2 FOLLOWING) AS min_in_window,
         MAX(num_votes) OVER (ORDER BY tconst ROWS BETWEEN 2 PRECEDING AND 2 FOLLOWING) AS max_in_window
-    FROM title_ratings
+    FROM temp_title_ratings
     ORDER BY tconst
 )
 
@@ -108,11 +90,10 @@ SELECT
     average_rating,
     num_votes,
     num_votes > 500 AS threshold_met
-FROM title_ratings
+FROM temp_title_ratings
 ;
 
 
-SELECT 'Hello' = 'hello';
 
 
 
