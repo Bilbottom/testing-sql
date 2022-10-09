@@ -21,3 +21,8 @@ The student data `db-creation\student-db` has come from:
 
 The IMDb data `db-creation\postgres-db` has come from:
  * https://datasets.imdbws.com/
+
+---
+
+Additional databases can be found at:
+* https://dzone.com/articles/collection-sql-server-sample-databases
