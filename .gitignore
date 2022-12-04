@@ -9,4 +9,4 @@
 **/config.png
 
 # Workspace files
-*.idea/
+.idea/
