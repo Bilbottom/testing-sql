@@ -1,14 +1,18 @@
 """
-Time the queries in the `queries` directory.
+Time the queries in the ``queries`` directory.
 """
-from database_connector import DatabaseConnector
-from query_timer import time_queries
+import sqlite3
+
+import db_query_profiler
 
 
 def main() -> None:
-    """Entry point."""
-    db_conn = DatabaseConnector('../db-creation/customer-db/customer.db')
-    time_queries(repeat=10000, conn=db_conn)
+    """Time the queries in the ``queries`` directory."""
+    db_query_profiler.time_queries(
+        conn=sqlite3.connect('../db-creation/customer-db/customer.db'),
+        repeat=10_000,
+        directory="queries",
+    )
 
 
 if __name__ == '__main__':
